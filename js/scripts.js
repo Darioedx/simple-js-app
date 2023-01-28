@@ -9,12 +9,13 @@ let pokemonRepository = (function () {
 ];
   
 function add(pokemon) {
-    if (typeof pokemon === 'object' &&
-    'name' in pokemon )
-      if ('height' in pokemon && typeof pokemon.height === 'number') 
-        {
-          pokemonList.push(pokemon);
-        }
+    if (typeof pokemon === 'object' && 'name' in pokemon && typeof pokemon.name == 'string')
+      {
+        if ('height' in pokemon && typeof pokemon.height === 'number') 
+          {
+            pokemonList.push(pokemon);
+          }
+      }  
   }
 
   function getAll() {
