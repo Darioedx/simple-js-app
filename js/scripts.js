@@ -17,29 +17,52 @@ function add(pokemon) {
           }
       }  
   }
-
-  function getAll() {
+  //add buutons to ul//
+  function addListItem(item){
+    let list= document.querySelector('.pokemon-list');
+    let listOfitems= document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = item.name;
+    button.classList.add('button')
+    button.addEventListener('click',showDetails);
+    listOfitems.appendChild(button);
+    list.appendChild(listOfitems);
+  }
+  //display poke name when event//
+  function showDetails(pokemon){
+    let button = pokemon.target;//pass event as parameter (avent.target)//
+    let pokeName = document.querySelector('p');
+    pokeName.innerText = button.innerText;
+    console.log(pokeName);
+  }
+  
+    function getAll() {
     return pokemonList;
   }
+  
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem : addListItem,
+    
   };
+
 })();
 
-pokemonList = pokemonRepository.getAll(); 
+
 
 pokemonRepository.add({ name: 'Pikachu', height: 1.7, type: [] });
+//call addListItem to display poke list 
+pokemonRepository.getAll().forEach(item =>{
+  pokemonRepository.addListItem(item);
+  
+});
 
 
-pokemonList.forEach(item =>{
-  if (item.height < 1.5)
-  {
-    document.write(`${item.name} (height:  ${item.height})<br>`);
-  } 
-  else if (item.height > 1.5) 
-  {
-    document.write(`${item.name } (height: ${item.height}) - Wow! That's big!<br>`);
-  }
-})
+
+
+let mainTitle = document.querySelector('h1');
+
+mainTitle.innerText = 'Poke List';
+console.log(mainTitle.innerText); 
