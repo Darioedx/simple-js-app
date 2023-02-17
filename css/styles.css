@@ -11,4 +11,14 @@ body{
   text-decoration: none;
   font-size: 20px;
   margin-bottom: 2%;
+  
+}
+.pokemon-list{
+  border: 3px solid black;
+  margin-left: 43%;
+  margin-right: 43%;
+  text-align: left;
+  padding:1% 3%;
+  
+
 }
