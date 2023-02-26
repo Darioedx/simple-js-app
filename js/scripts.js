@@ -1,5 +1,9 @@
 
 let pokemonRepository = (function () {
+let mainTitle = document.querySelector('h1');
+
+mainTitle.innerText = 'Poke List';
+console.log(mainTitle.innerText);
 
  let pokemonList = [];
  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -27,12 +31,8 @@ let pokemonRepository = (function () {
   }
   //display poke name when event//
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      let pokeName = document.querySelector('p');
-      nombre = pokemon.name;
-      pokeHeight = pokemon.height;
-      pokeName.innerText =  `Name : ${nombre}    Height: ${pokeHeight}`;
-      console.log(pokemon);
+    loadDetails(pokemon).then(function () {   
+      modalIIFE.showModal(pokemon);
     });
   }
   function getAll() {
@@ -48,7 +48,7 @@ let pokemonRepository = (function () {
           detailsUrl: item.url
         };
         add(pokemon);
-        console.log(pokemon);
+        
       });
     }).catch(function (e) {
        console.error(e);
@@ -84,14 +84,6 @@ let pokemonRepository = (function () {
 })();
 
 
-
-//pokemonRepository.add({ name: 'Pikachu', height: 1.7, type: [] });
-//call addListItem to display poke list 
-
-
-
-
-
   pokemonRepository.loadList().then(function() {
     // Now the data is loaded!
     pokemonRepository.getAll().forEach(item =>
@@ -100,9 +92,92 @@ let pokemonRepository = (function () {
   
 
 
+let modalIIFE= (function (){
+  let modalContainer = document.querySelector('#modal-container');//target div whr details 
+  
+  function showModal(pokemon) {
+    let detailsArray = [pokemon.name, pokemon.height]
+    modalContainer.innerHTML = '';
+   
+    let divTxt = document.createElement('div');
+    divTxt.classList.add('info')
+    modalContainer.appendChild(divTxt);
+    //dysplay name and height
+    for (let i = 0; i < detailsArray.length; i++){
+      let contentElement = document.createElement('p');
+      if (i == 0){
+        contentElement.innerText = `Name: ${detailsArray[i]}`;
+        divTxt.appendChild(contentElement);
+                
+      }
+      else{
+        contentElement.innerText = `Height: ${detailsArray[i]}`;
+        divTxt.appendChild(contentElement);
+              
+      }
+    }
+   
+    //show types
+    for (let i = 0; i < pokemon.types.length; i++) {
+      let contentElement = document.createElement('p');
+      if (pokemon.types.length == 1 && i == 0){
+        contentElement.innerText = `type: ${pokemon.types[i].type.name}`;
+        divTxt.appendChild(contentElement);
+      }
+      else{
+        contentElement.innerText = `type: ${pokemon.types[i].type.name} and ${pokemon.types[(i+1)].type.name} `;
+        divTxt.appendChild(contentElement);
+        break;
+      }
+    } 
+     //dysplay img and create close button
+    let closeButton = document.createElement('button');
+    closeButton.innerText = 'Close';
+    closeButton.classList.add('buttonClose')
+    closeButton.addEventListener('click',hideModal);
+    
+    let divImg = document.createElement('div');
+    divImg.classList.add('infoImg')
+    let myImage = document.createElement('img');
+    myImage.src = pokemon.imageUrl;
+    
+    modalContainer.appendChild(divImg);
+   
+    divImg.appendChild(closeButton);
+    divImg.appendChild(myImage);
+    
+    modalContainer.classList.add('is-visible');// add class to div    
+   
+    document.querySelector('.button').addEventListener('click', () => {
+      showModal(pokemon);
+    });
+  }
 
+ 
+  function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+      modalContainer.classList.remove('is-visible');
 
-let mainTitle = document.querySelector('h1');
+     
+  }
+  
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();  
+    }
+  });
+  
+  modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
 
-mainTitle.innerText = 'Poke List';
-console.log(mainTitle.innerText); 
+  return {
+      showModal: showModal,
+      hideModal: hideModal
+  }
+})();
