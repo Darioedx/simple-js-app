@@ -1,0 +1,48 @@
+body{
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    
+    background-color:   #007bff;
+}
+
+
+  
+  img{
+    width: 150px;
+  }
+  .btn-primary {
+  border-color: #020202;
+  width: 100%;
+}
+.navbar-nav{
+  flex-direction: row;
+  margin: 0 auto;
+  
+}
+.row{
+  margin: 0 ;
+  background-color: #f7c900;
+  border: none;
+}
+#clear{
+
+  display: none;
+}
+
+
+#put{
+  color: #fff;
+  background-color: #007bff;
+  border:2px solid#020202;
+  margin: 2px;
+  width: 62px;
+  
+}
+.marco{
+  background-color: #f7c900;
+  width: 98.4%;
+  margin: 0 auto;
+  margin-top: 1%;
+  padding: 0.5%;
+}

@@ -20,14 +20,21 @@ console.log(mainTitle.innerText);
   }
   //add buutons to ul//
   function addListItem(item){
-    let list= document.querySelector('.pokemon-list');
+    let list= document.querySelector('#pokemon-list');
+    let row= document.querySelector('.row')
     let listOfitems= document.createElement('li');
+    listOfitems.classList.add("list-group-item",'col-xl-3', 'col-lg-4', 'col-md-6', 'row')
     let button = document.createElement('button');
     button.innerText = item.name;
-    button.classList.add('button')
+    
+    button.classList.add("btn-primary");
+    button.classList.add("pokemon-button");
+    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-target', '#exampleModal');
     button.addEventListener('click',function(event){showDetails(item)});
+   
     listOfitems.appendChild(button);
-    list.appendChild(listOfitems);
+    row.appendChild(listOfitems);
   }
   //display poke name when event//
   function showDetails(pokemon) {
@@ -65,20 +72,67 @@ console.log(mainTitle.innerText);
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
       item.types = details.types;
+      item.weight = details.weight;
     }).catch(function (e) {
       console.error(e);
     });
   }
-  
-
+  function navSearch(){
+    clearButton = document.querySelector('#clear')
+    nav = document.querySelector('.navbar-nav');
+    
+    for (i = 97; i <= 122; i++) {
+      let navButton = document.createElement('button');
+      navButton.innerText= String.fromCharCode(i);
+      navButton.classList.add("btn-warning");
+      navButton.setAttribute('id', 'put');
+      let pkmn = document.querySelector('.showSearch'); 
+      nav.classList.add("list-group-item", 'row','col');
+      
+      navButton.addEventListener('click',function(event){      
+        clearButton.removeAttribute('id');   
+        clearButton.addEventListener('click', function(){
+          pkmn.innerHTML = '';
+          clearButton.setAttribute('id','clear');
+        })
+        
+        for(i in pokemonList){
+            if (pokemonList[i].name.startsWith(navButton.innerText)){
+               let showSearch = document.createElement('button');
+               showSearch.setAttribute('data-toggle', 'modal');
+               showSearch.setAttribute('data-target', '#exampleModal');
+               showSearch.innerText = pokemonList[i].name;
+               pkmn.appendChild(showSearch); 
+               showSearch.addEventListener('click',function(event){
+                let pmn = event.target.innerText ;
+                for(j in pokemonList){
+                  if(pokemonList[j].name == pmn){
+                    showDetails(pokemonList[j])
+                  }
+                } 
+                        
+              });                                        
+            } 
+            
+                   
+          } 
+      });
+      
+     nav.appendChild(navButton);      
+    }
+    
+  }
+   ////////////////////////////////////////////////////  
+ 
+   
   return {
     add: add,
     getAll: getAll,
     addListItem : addListItem,
     loadList : loadList,
     loadDetails : loadDetails,
-    showDetails: showDetails
-    
+    showDetails: showDetails,
+    navSearch : navSearch
   };
 
 })();
@@ -88,25 +142,30 @@ console.log(mainTitle.innerText);
     // Now the data is loaded!
     pokemonRepository.getAll().forEach(item =>
       pokemonRepository.addListItem(item));
+      pokemonRepository.navSearch()
     });
+
+   
+
   
 
 
 let modalIIFE= (function (){
-  let modalContainer = document.querySelector('#modal-container');//target div whr details 
+  let modalContainer = document.querySelector('#modalRow');//target div whr details 
   
   function showModal(pokemon) {
-    let detailsArray = [pokemon.name, pokemon.height]
+    let detailsArray = [pokemon.weight, pokemon.height]
     modalContainer.innerHTML = '';
-   
+    pokeName = document.querySelector('h5');
+    pokeName.innerText = `Name: ${pokemon.name}`;
     let divTxt = document.createElement('div');
-    divTxt.classList.add('info')
+    divTxt.classList.add('col-6')
     modalContainer.appendChild(divTxt);
     //dysplay name and height
     for (let i = 0; i < detailsArray.length; i++){
       let contentElement = document.createElement('p');
       if (i == 0){
-        contentElement.innerText = `Name: ${detailsArray[i]}`;
+        contentElement.innerText = `Weight: ${detailsArray[i]}`;
         divTxt.appendChild(contentElement);
                 
       }
@@ -131,53 +190,24 @@ let modalIIFE= (function (){
       }
     } 
      //dysplay img and create close button
-    let closeButton = document.createElement('button');
-    closeButton.innerText = 'Close';
-    closeButton.classList.add('buttonClose')
-    closeButton.addEventListener('click',hideModal);
     
     let divImg = document.createElement('div');
-    divImg.classList.add('infoImg')
+    divImg.classList.add('col-6')
     let myImage = document.createElement('img');
     myImage.src = pokemon.imageUrl;
-    
     modalContainer.appendChild(divImg);
-   
-    divImg.appendChild(closeButton);
     divImg.appendChild(myImage);
     
-    modalContainer.classList.add('is-visible');// add class to div    
+     
    
-    document.querySelector('.button').addEventListener('click', () => {
-      showModal(pokemon);
-    });
+   
   }
 
  
-  function hideModal() {
-    let modalContainer = document.querySelector('#modal-container');
-      modalContainer.classList.remove('is-visible');
-
-     
-  }
-  
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();  
-    }
-  });
-  
-  modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
+ 
 
   return {
       showModal: showModal,
-      hideModal: hideModal
+      
   }
 })();
