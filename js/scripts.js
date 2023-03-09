@@ -9,18 +9,12 @@ console.log(mainTitle.innerText);
  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
  
  function add(pokemon) {
-    //if (typeof pokemon === 'object' && 'name' in pokemon && typeof pokemon.name == 'string')
-      //{
-        //if ('height' in pokemon && typeof pokemon.height === 'number') 
-          //{
-            pokemonList.push(pokemon);
-          //}
-      //}  
     
+    pokemonList.push(pokemon);   
   }
   //add buutons to ul//
   function addListItem(item){
-    let list= document.querySelector('#pokemon-list');
+    
     let row= document.querySelector('.row')
     let listOfitems= document.createElement('li');
     listOfitems.classList.add("list-group-item",'col-xl-3', 'col-lg-4', 'col-md-6', 'row')
@@ -101,6 +95,7 @@ console.log(mainTitle.innerText);
                let showSearch = document.createElement('button');
                showSearch.setAttribute('data-toggle', 'modal');
                showSearch.setAttribute('data-target', '#exampleModal');
+               showSearch.setAttribute('id', 'btnSearch')
                showSearch.innerText = pokemonList[i].name;
                pkmn.appendChild(showSearch); 
                showSearch.addEventListener('click',function(event){
@@ -176,7 +171,7 @@ let modalIIFE= (function (){
       }
     }
    
-    //show types
+    //get types
     for (let i = 0; i < pokemon.types.length; i++) {
       let contentElement = document.createElement('p');
       if (pokemon.types.length == 1 && i == 0){
@@ -202,10 +197,6 @@ let modalIIFE= (function (){
    
    
   }
-
- 
- 
-
   return {
       showModal: showModal,
       

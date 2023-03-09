@@ -24,6 +24,8 @@ body{
   margin: 0 ;
   background-color: #f7c900;
   border: none;
+  outline: 2px solid #020202;
+
 }
 #clear{
 
@@ -45,4 +47,19 @@ body{
   margin: 0 auto;
   margin-top: 1%;
   padding: 0.5%;
+  outline: 2px solid #020202;
+}
+.navbar{
+  background-color: #007bff;
+}
+#btnSearch{
+  background-color: #007bff;
+  color: #fff;
+  border:2px solid#020202;
+  margin: 2px;
+}
+.modal-content{
+  background-color:#043f80;
+  color: #020202;
+  border:2px solid#020202;
 }

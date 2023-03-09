@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
+	<title>Pokedex</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
 	 crossorigin="anonymous">
 
@@ -14,21 +14,19 @@
 <body>
 	<!-- nav with search bar -->
 	
-  <nav class="navbar navbar-expand-lg " style="background-color: #007bff">
-   
-    
-      <ul class="navbar-nav" id="searchButt" ></ul>
+  <nav class="navbar navbar-expand-lg ">
+     
+      <ul class="navbar-nav" id="searchButt" role="navigation" aria-label="Main"></ul>
         
-      
-    
   </nav>
-  <div class="marco">
+  
+  <div class="marco" >
     <h1></h1>
   
-  <!---->
-<div class="showSearch"></div>
+  <!--show alphabetic search---->
+   <div class="showSearch"></div>
   
-<button type="button" class="btn btn-primary" id= "clear" style="width: 15%">clear</button>
+   <button type="button" class="btn btn-primary" id= "clear" style="width: 15%" aria-label="Clear">clear</button>
 </div>
 <br>
 <!--UL for poke list-->
@@ -53,7 +51,7 @@
         </div>    
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">Close</button>
       </div>
     </div>
   </div>
