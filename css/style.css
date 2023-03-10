@@ -1,9 +1,20 @@
+:root {
+  --primary-bg-color:#007bff;
+  --secondary-bg-color: #f7c900;
+  --border-one: 2px solid#020202;;
+  --border-two:#fff;
+  --list-border-col: #020202;
+  --font-colOne:#fff;
+  --modal-bg-colOne:#043f80;
+  --modal-bg-colTwo:#a08302;
+}
+
 body{
     font-weight: bold;
     font-size: larger;
     text-align: center;
     
-    background-color:   #007bff;
+    background-color:  var(--primary-bg-color);
 }
 
 
@@ -12,7 +23,7 @@ body{
     width: 150px;
   }
   .btn-primary {
-  border-color: #020202;
+  border-color: var(--list-border-col);
   width: 100%;
 }
 .navbar-nav{
@@ -22,9 +33,9 @@ body{
 }
 .row{
   margin: 0 ;
-  background-color: #f7c900;
+  background-color: var(--secondary-bg-color);
   border: none;
-  outline: 2px solid #020202;
+  outline: var(--border-one);
 
 }
 #clear{
@@ -34,58 +45,59 @@ body{
 
 
 #put{
-  color: #fff;
-  background-color: #007bff;
-  border:2px solid#020202;
+  color:var(--font-colOne);
+  background-color: var(--primary-bg-color);
+  border:var(--border-one);
   margin: 2px;
   width: 62px;
   
 }
 .marco{
-  background-color: #f7c900;
+  background-color: var(--secondary-bg-color);;
   width: 98.4%;
   margin: 0 auto;
   margin-top: 1%;
   padding: 0.5%;
-  outline: 2px solid #020202;
+  outline: var(--border-one);
 }
 .navbar{
-  background-color: #007bff;
+  background-color: var(--primary-bg-color);
 }
 #btnSearch{
-  background-color: #007bff;
-  color: #fff;
-  border:2px solid#020202;
+  background-color: var(--primary-bg-color);;
+  color: var(--font-colOne);
+  border:var(--border-one);
   margin: 2px;
 }
 .modal-content{
-  background-color:#043f80;
-  color: #fff;;
-  border:2px solid#020202;
+  background-color:var(--modal-bg-colOne);
+  color: var(--font-colOne);
+  border:var(--border-one);
 }
 .navbar-toggler-icon{
-  border:2px solid#020202;
-  background-color: #f7c900;
+  border:var(--border-one);
+  background-color: var(--secondary-bg-color);
  
 }
 .navbar-toggler{
 
-  border: 2px solid;
+  border:var(--border-one);
 }
 .modal-title{
-  color: #fff;
+  color: var(--font-colOne);
 }
 .btn-secondary {
-  color: #fff;
-  background-color:#043f80 ;
-  border-color: #fff;
+  color:var(--font-colOne);
+  background-color: var(--modal-bg-colOne);
+  border-color: var(--border-two);
 }
 h5{
   Font-weight: 1000;
 }
 #modalRow{
-  background-color: #a08302;
-  border: #fff;
+  background-color: var(--modal-bg-colTwo);
+  border:2px solid var(--border-two);
+  outline: 2px solid var(--border-two);
 }
 .showSearch{
   margin: 7px;
