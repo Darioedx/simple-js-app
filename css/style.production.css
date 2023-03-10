@@ -9,42 +9,44 @@
     --modal-bg-colTwo:#a08302;
   }
   
-  body{
+body{
       font-weight: bold;
       font-size: larger;
       text-align: center;
-      
       background-color:  var(--primary-bg-color);
-  }
-  
-  
-    
-    img{
-      width: 150px;
-    }
-    .btn-primary {
+}
+     
+img{
+    width: 150px;
+}
+
+.btn-primary {
     border-color: var(--list-border-col);
     width: 100%;
-  }
-  .navbar-nav{
+}
+
+.navbar-nav{
     flex-direction: row;
     margin: 0 auto;
     
-  }
-  .row{
+}
+.row{
     margin: 0 ;
     background-color: var(--secondary-bg-color);
     border: none;
     outline: var(--border-one);
   
-  }
-  #clear{
+}
+#clear{
   
     display: none;
   }
+#mainList{
+    padding: 0;
+
+} 
   
-  
-  #put{
+#put{
     color:var(--font-colOne);
     background-color: var(--primary-bg-color);
     border:var(--border-one);
@@ -52,7 +54,7 @@
     width: 62px;
     
   }
-  .marco{
+.marco{
     background-color: var(--secondary-bg-color);;
     width: 98.4%;
     margin: 0 auto;
@@ -60,45 +62,45 @@
     padding: 0.5%;
     outline: var(--border-one);
   }
-  .navbar{
+.navbar{
     background-color: var(--primary-bg-color);
   }
-  #btnSearch{
+#btnSearch{
     background-color: var(--primary-bg-color);;
     color: var(--font-colOne);
     border:var(--border-one);
     margin: 2px;
   }
-  .modal-content{
+.modal-content{
     background-color:var(--modal-bg-colOne);
     color: var(--font-colOne);
     border:var(--border-one);
   }
-  .navbar-toggler-icon{
+.navbar-toggler-icon{
     border:var(--border-one);
     background-color: var(--secondary-bg-color);
    
   }
-  .navbar-toggler{
+.navbar-toggler{
   
     border:var(--border-one);
   }
-  .modal-title{
+.modal-title{
     color: var(--font-colOne);
   }
-  .btn-secondary {
+.btn-secondary {
     color:var(--font-colOne);
     background-color: var(--modal-bg-colOne);
     border-color: var(--border-two);
   }
-  h5{
+h5{
     Font-weight: 1000;
   }
-  #modalRow{
+#modalRow{
     background-color: var(--modal-bg-colTwo);
     border:2px solid var(--border-two);
     outline: 2px solid var(--border-two);
   }
-  .showSearch{
+.showSearch{
     margin: 7px;
   }

@@ -16,13 +16,16 @@ body{
     
     background-color:  var(--primary-bg-color);
 }
+#mainList{
+    padding: 0;
 
+}
 
   
-  img{
+img{
     width: 150px;
   }
-  .btn-primary {
+.btn-primary {
   border-color: var(--list-border-col);
   width: 100%;
 }
@@ -42,15 +45,12 @@ body{
 
   display: none;
 }
-
-
 #put{
   color:var(--font-colOne);
   background-color: var(--primary-bg-color);
   border:var(--border-one);
   margin: 2px;
   width: 62px;
-  
 }
 .marco{
   background-color: var(--secondary-bg-color);;
