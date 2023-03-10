@@ -60,11 +60,33 @@ body{
 }
 .modal-content{
   background-color:#043f80;
-  color: #020202;
+  color: #fff;;
   border:2px solid#020202;
 }
 .navbar-toggler-icon{
   border:2px solid#020202;
   background-color: #f7c900;
  
+}
+.navbar-toggler{
+
+  border: 2px solid;
+}
+.modal-title{
+  color: #fff;
+}
+.btn-secondary {
+  color: #fff;
+  background-color:#043f80 ;
+  border-color: #fff;
+}
+h5{
+  Font-weight: 1000;
+}
+#modalRow{
+  background-color: #a08302;
+  border: #fff;
+}
+.showSearch{
+  margin: 7px;
 }

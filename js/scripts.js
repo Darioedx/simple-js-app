@@ -1,9 +1,6 @@
 
 let pokemonRepository = (function () {
-let mainTitle = document.querySelector('h1');
 
-mainTitle.innerText = 'Poke List';
-console.log(mainTitle.innerText);
 
  let pokemonList = [];
  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';

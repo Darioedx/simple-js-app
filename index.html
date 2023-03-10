@@ -12,23 +12,24 @@
 </head>
 
 <body>
-	<!-- nav with search bar -->
-	<nav class="navbar navbar-expand-sm  bg-body-tertiary">
-    
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+	<!-- nav with abc...search -->
+	<nav class="navbar navbar-expand-sm  bg-body-tertiary" title="Alphabetic search">
+    <div title="Click to open alphabetic search">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+       </button>
+     </div> 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" id="searchButt" role="navigation" aria-label="Main"></ul>
     </div> 
 </nav>
   <div class="marco" >
-    <h1></h1>
+    <h2>Pokemon List</h2>
   
   <!--show alphabetic search---->
    <div class="showSearch"></div>
   
-   <button type="button" class="btn btn-primary" id= "clear" style="width: 15%" aria-label="Clear">clear</button>
+   <button type="button" class="btn btn-primary btn-sm" id= "clear" style="width: 15%" aria-label="Clear">clear</button>
 </div>
 <br>
 <!--UL for poke list-->
@@ -41,9 +42,6 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
       <div class="modal-body" >
         <div class="container-fluid">
