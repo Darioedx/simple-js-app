@@ -5,6 +5,7 @@
 Once the user clicks on the specific name, a modal will display the characteristics of the chosen pokemon on the screen.
 ##Tools & Languages used HTML, CSS, JavaScript, Json and Bootstrap
 
+This site is live at https://darioedx.github.io/simple-js-app/
 
 ![imagen](https://user-images.githubusercontent.com/90302289/224537413-0dadcba1-f8b1-440e-a767-a16f466efe22.png)
 ![pokeMosdal](https://user-images.githubusercontent.com/90302289/224537574-440d4a21-cbc1-4873-85a7-31a1f4480f04.png)
